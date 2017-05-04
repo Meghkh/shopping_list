@@ -1,7 +1,7 @@
 """
 Shopping List (Hackbright Prep dictionary code challenge)
 
-Create a dictionary of shopping lists, and be able to 
+Create a dictionary of shopping lists, and be able to
     * add / remove lists
     * add / remove items from lists
 
@@ -21,8 +21,8 @@ def add_new_shopping_list(lists_by_name, new_list_name):
       None
     """
 
-    # your code here! 
-    pass
+    # your code here!
+    lists_by_name[new_list_name] = []
 
 
 def remove_shopping_list(lists_by_name, list_name_to_remove):
@@ -38,8 +38,12 @@ def remove_shopping_list(lists_by_name, list_name_to_remove):
       None
     """
 
-    # your code here! 
-    pass
+    # your code here!
+    if list_name_to_remove in lists_by_name:
+        del lists_by_name[list_name_to_remove]
+    else:
+        print "Sorry, that list was not found."
+
 
 
 def add_to_shopping_list(lists_by_name, list_name, items):
@@ -88,9 +92,11 @@ def display_shopping_list(lists_by_name, list_name):
       None
     """
 
-    # your code here! 
-    pass
-
+    # your code here!
+    if list_name in lists_by_name:
+        print lists_by_name[list_name]
+    else:
+        print "Sorry, list not found!"
 
 def show_all_lists(lists_by_name):
     """Given a dictionary of shopping lists, print out each list.
@@ -101,8 +107,10 @@ def show_all_lists(lists_by_name):
       None
     """
 
-    # your code here! 
-    pass
+    # your code here!
+    for key in lists_by_name:
+        display_shopping_list(lists_by_name, key)
+
 
 
 def parse_string_of_items(items_string):
